@@ -1,4 +1,21 @@
-.sys-menu {
+/* fullpage.js override */
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
+    background: #6ACBE9;
+}
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #48a9c7;
+    background: transparent;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}
+
+/* style */
+.navbar  {
     position: relative;
     z-index: 10;
 }

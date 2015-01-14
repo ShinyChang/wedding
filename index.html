@@ -13,12 +13,25 @@
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-    <ul class="sys-menu">
-        <li data-menuanchor="main" class="active"><a href="#main">首頁</a></li>
-        <li data-menuanchor="slideshow"><a href="#slideshow">相片</a></li>
-        <li data-menuanchor="comment"><a href="#comment">留言板</a></li>
-        <li data-menuanchor="thankyou"><a href="#thankyou">致謝</a></li>
-    </ul>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">思諭 &amp; 志宏 訂婚</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav sys-menu">
+                <li data-menuanchor="main" class="active"><a href="#main">首頁</a></li>
+                <li data-menuanchor="slideshow"><a href="#slideshow">相片</a></li>
+                <li data-menuanchor="comment"><a href="#comment">留言板</a></li>
+                <li data-menuanchor="thankyou"><a href="#thankyou">致謝</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
     <div class="js-fullpage">
         <div class="section">首頁</div>
         <div class="section">相片</div>
