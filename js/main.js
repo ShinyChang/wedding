@@ -13,7 +13,6 @@ ga('send', 'pageview');
     $('.js-fullpage').fullpage({
         anchors: ['main', 'slideshow', 'comment', 'thankyou'],
         menu: '.sys-menu',
-
         navigation: true,
         navigationTooltips: ['main', 'slideshow', 'comment', 'thankyou'],
 
