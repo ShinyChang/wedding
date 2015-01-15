@@ -15,7 +15,24 @@
 }
 
 /* style */
-.navbar  {
+.section {
+    position:relative;
+}
+.sys-menu  {
     position: relative;
     z-index: 10;
+    margin-bottom: 0;
 }
+
+.section-slideshow {
+
+}
+    .photo-box {
+
+    }
+    .photo-box .item {
+        display:inline-block;
+        width: 40px;
+        height: 40px;
+        overflow:hidden;
+    }
