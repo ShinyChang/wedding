@@ -14,25 +14,62 @@
     z-index: 1;
 }
 
-/* style */
+/* section */
 .section {
     position:relative;
 }
-.sys-menu  {
-    position: relative;
-    z-index: 10;
-    margin-bottom: 0;
+.section .page-header {
+    padding-top: 5px;
+    margin-top: 0;
 }
 
-.section-slideshow {
 
+/* section slideshow */
+.section-slideshow {
+    background-color: #22313f;
+    color: #fff;
+    border-color: #fff;
+    text-align: center;
 }
     .photo-box {
+        max-width: 960px;
+        margin: auto;
+        text-align: left;
+    }
+        .photo-box figure {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            overflow:hidden;
+        }
+        .photo-box figure:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: " ";
+            background: #000;
+            opacity: 0.7;
+            z-index: 1;
+            cursor: pointer;
+            -webkit-transition: opacity 0.3s ease;
+            -ms-transition: opacity 0.3s ease;
+            -moz-transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease;
+        }
+        .photo-box figure:hover:before {
+            opacity: 0;
+            -webkit-transition: opacity 0.3s ease;
+            -ms-transition: opacity 0.3s ease;
+            -moz-transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease;
+        }
 
-    }
-    .photo-box .item {
-        display:inline-block;
-        width: 40px;
-        height: 40px;
-        overflow:hidden;
-    }
+/* section discuss */
+.section-discuss {
+    text-align: center;
+}
