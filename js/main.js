@@ -1,10 +1,5 @@
 // facebook API
 window.fbAsyncInit = function() {
-    FB.init({
-        appId: '219304874920482',
-        xfbml: true,
-        version: 'v2.2'
-    });
     FB.getLoginStatus(function(response) {
         onFacebookLoginStatusChange(response);
     });
