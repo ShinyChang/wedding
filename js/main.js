@@ -34,15 +34,18 @@ ga('send', 'pageview');
 // fullpage.js
 (function(){
     $('.js-fullpage').fullpage({
-        anchors: ['main', 'slideshow', 'comment', 'thankyou'],
-        // menu: '.sys-menu',
+        anchors: ['main', 'slideshow', 'comment'],
         navigation: true,
         resize: false,
         verticalCentered:false,
-        // normalScrollElements: ".photo-box",
-        navigationTooltips: ['首頁', '婚紗照', '留言板', '致謝'],
-        // paddingTop: '20px',
-        scrollingSpeed: 700
+        normalScrollElements: ".pswp, .photo-box",
+        navigationTooltips: ['首頁', '婚紗照', '留言板'],
+        scrollingSpeed: 700,
+        afterLoad: function(anchorLink, index) {
+            if (anchorLink === 'comment') {
+                $("input:text:visible").focus();
+            }
+        }
     });
 })();
 
