@@ -1,12 +1,40 @@
-// ga
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+// facebook API
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '219304874920482',
+        xfbml: true,
+        version: 'v2.2'
+    });
+    FB.getLoginStatus(function(response) {
+        onFacebookLoginStatusChange(response);
+    });
+};
 
+window.checkFacebookLoginState = function() {
+    FB.getLoginStatus(function(response) {
+        onFacebookLoginStatusChange(response);
+    });
+};
+
+window.onFacebookLoginStatusChange = function(response) {
+    if (response.status === 'connected') {
+        FB.api('/me', function(response) {
+            $(".js-fb-not-login").hide();
+            $(".js-fb-logined")
+                .fadeIn()
+                .find(".user-photo")
+                .css("background-image", "url(https://graph.facebook.com/" + response.id + "/picture?type=large)");
+        });
+    }
+};
+
+// Google Analytics
+window.GoogleAnalyticsObject = 'ga';
+window.ga = window.ga || function() {
+    (window.ga.q = window['ga'].q || []).push(arguments)
+};
 ga('create', 'UA-27224084-4', 'auto');
 ga('send', 'pageview');
-
 
 // fullpage.js
 (function(){
@@ -21,8 +49,11 @@ ga('send', 'pageview');
         // paddingTop: '20px',
         scrollingSpeed: 700
     });
+})();
 
-    var initPhotoSwipeFromDOM = function(gallerySelector) {
+// photoSwipe
+(function(){
+var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // parse slide data (url, title, size ...) from DOM elements
     // (children of gallerySelector)
