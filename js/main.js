@@ -34,12 +34,12 @@ ga('send', 'pageview');
 // fullpage.js
 (function(){
     $('.js-fullpage').fullpage({
-        anchors: ['main', 'slideshow', 'comment', 'thankyou'],
+        anchors: ['main', 'slideshow', 'comment'],
         navigation: true,
         resize: false,
         verticalCentered:false,
         normalScrollElements: ".pswp, .photo-box",
-        navigationTooltips: ['首頁', '婚紗照', '留言板', '致謝'],
+        navigationTooltips: ['首頁', '婚紗照', '留言板'],
         scrollingSpeed: 700,
         afterLoad: function(anchorLink, index) {
             if (anchorLink === 'comment') {

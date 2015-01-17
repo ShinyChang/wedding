@@ -266,31 +266,31 @@
             <div class="page-header">
                 <h1><small>留下您對新人的祝福</small></h1>
             </div>
-                <div class="comment-list"></div>
-                <form class='comment-input-box' action="postComment" method="post">
-                    <div class="help-block js-fb-not-login">
-                        請透過
-                        <div class="fb-login-button"
-                                scope="public_profile"
-                                data-max-rows="1"
-                                data-size="icon"
-                                data-show-faces="false"
-                                data-auto-logout-link="true"
-                                onlogin="checkFacebookLoginState();"></div>
-                        登入後，留下您的祝福
-                    </div>
-                    <div class="input-group js-fb-logined" style="display:none">
-                        <span class="input-group-btn">
-                            <span class="user-photo"></span>
-                        </span>
-                        <input type="text" class="form-control" placeholder="您想說甚麼..." required>
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit"><img src="image/send.png" alt="send" width="16px"></button>
-                        </span>
-                    </div>
-                </form>
+            <div class="comment-list">
+            </div>
+            <form class='comment-input-box' action="postComment" method="post">
+                <div class="help-block js-fb-not-login">
+                    請透過
+                    <div class="fb-login-button"
+                            scope="public_profile"
+                            data-max-rows="1"
+                            data-size="icon"
+                            data-show-faces="false"
+                            data-auto-logout-link="true"
+                            onlogin="checkFacebookLoginState();"></div>
+                    登入後，留下您的祝福
+                </div>
+                <div class="input-group js-fb-logined" style="display:none">
+                    <span class="input-group-btn">
+                        <span class="user-photo"></span>
+                    </span>
+                    <input type="text" class="form-control" placeholder="您想說甚麼..." required>
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit"><img src="image/send.png" alt="send" width="16px"></button>
+                    </span>
+                </div>
+            </form>
         </div>
-        <div class="section">致謝</div>
     </div>
 
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
