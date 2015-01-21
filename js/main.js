@@ -198,8 +198,13 @@ ga('send', 'pageview');
                 index: index,
 
                 // define gallery index (for URL)
-                galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+                galleryUID: galleryElement.getAttribute('data-pswp-uid') || 1, // compatibility with mCustomScrollbar
 
+
+                shareButtons: [
+                    {id:'facebook', label:'分享到 Facebook', url:'https://www.facebook.com/sharer/sharer.php?u='},
+                    {id:'download', label:'下載原始圖片', url:'', download:true}
+                ],
                 getThumbBoundsFn: function(index) {
                     // See Options -> getThumbBoundsFn section of documentation for more info
                     var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
