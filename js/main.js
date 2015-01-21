@@ -1,3 +1,16 @@
+// for mobile
+(function(){
+    var lockOrientation = screen.mslockOrientation
+                        || screen.mozlockOrientation
+                        || screen.webkitlockOrientation
+                        || screen.lockOrientation;
+
+    if (lockOrientation) {
+        lockOrientation('portrait');
+    }
+})();
+
+
 // facebook API
 window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
