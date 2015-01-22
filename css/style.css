@@ -93,6 +93,13 @@ html, body {
             vertical-align: middle;
             border: 1px solid #fff;
         }
+        .photo-box img {
+            /* NOTE: Not support IE, old browser(e.g. Android 4.4 and below) */
+            /* SEE: http://caniuse.com/#feat=object-fit */
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
     .section-slideshow.active .photo-box {
 
         -webkit-transition: opacity 1s ease 1.2s;
