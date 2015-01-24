@@ -51,13 +51,14 @@ ga('send', 'pageview');
         navigation: true,
         resize: false,
         verticalCentered:false,
-        normalScrollElements: ".pswp, .photo-box",
+        scrollOverflow: true,
+        normalScrollElements: ".pswp",
         navigationTooltips: ['首頁', '婚紗照', '留言板'],
         scrollingSpeed: 700,
         afterLoad: function(anchorLink, index) {
-            if (anchorLink === 'comment') {
-                $("input:text:visible").focus();
-            }
+            // if (anchorLink === 'comment') {
+            //     $("input:text:visible").focus();
+            // }
         }
     });
 })();
@@ -211,7 +212,7 @@ ga('send', 'pageview');
                 index: index,
 
                 // define gallery index (for URL)
-                galleryUID: galleryElement.getAttribute('data-pswp-uid') || 1, // compatibility with mCustomScrollbar
+                galleryUID: galleryElement.getAttribute('data-pswp-uid'),
 
 
                 shareButtons: [
