@@ -124,8 +124,39 @@ html, body {
         right: 0;
         bottom: 40px;
         left: 0;
+        padding: 10px;
         background: rgb(250, 253, 196);
     }
+        .comment {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .comment:before {
+            position: absolute;
+            top: 10px;
+            left: 32px;
+            display: block;
+            content: " ";
+            border: 8px solid transparent;
+            border-right: 8px solid lightgreen;
+
+        }
+            .comment .profile {
+                display: inline-block;
+                width: 36px;
+                height: 36px;
+                float: left;
+                background-position: center center;
+                background-size: cover;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .comment .message {
+                text-align: left;
+                overflow: hidden;
+                background: lightgreen;
+                padding: 8px;
+            }
     .comment-input-box {
         position: absolute;
         right: 0;
@@ -151,3 +182,5 @@ html, body {
     -webkit-transition: bottom .5s ease 1s;
     transition: bottom .5s ease 1s;
 }
+
+
