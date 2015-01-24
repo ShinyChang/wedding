@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="vendors/fullPage.js/jquery.fullPage.css">
     <link rel="stylesheet" href="vendors/PhotoSwipe/photoswipe.css">
     <link rel="stylesheet" href="vendors/PhotoSwipe/default-skin/default-skin.css">
-    <link rel="stylesheet" href="vendors/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
 
     <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 9]>
@@ -31,7 +30,7 @@
             <div class="page-header">
               <h1><small>與您分享我們的幸福</small></h1>
             </div>
-            <div class="mCustomScrollbar photo-box" data-mcs-theme="minimal-dark">
+            <div class="photo-box" data-mcs-theme="minimal-dark">
                 <figure><a href="photo/001.jpg" data-size="1620x1080"><img src="photo/001s.jpg" alt="001"/></a>
                 </figure><figure><a href="photo/002.jpg" data-size="720x1080"><img src="photo/002s.jpg" alt="002"/></a>
                 </figure><figure><a href="photo/003.jpg" data-size="1620x1080"><img src="photo/003s.jpg" alt="003"/></a>
@@ -266,9 +265,9 @@
             <div class="page-header">
                 <h1><small>留下您對新人的祝福</small></h1>
             </div>
-            <div class="comment-list">
+            <div class="comment-list js-comment-list">
             </div>
-            <form class='comment-input-box' action="postComment" method="post">
+            <form class='comment-input-box js-form' action="http://wedding.shinychang.net/comments.json" method="post">
                 <div class="help-block js-fb-not-login">
                     請透過
                     <div class="fb-login-button"
@@ -284,9 +283,11 @@
                     <span class="input-group-btn">
                         <span class="user-photo"></span>
                     </span>
-                    <input type="text" class="form-control" placeholder="您想說甚麼..." required>
+                    <input class="js-form-id" type="hidden" name="id">
+                    <input class="js-form-name" type="hidden" name="name">
+                    <input class="form-control js-form-message" type="text" name="message" placeholder="您想說甚麼..." required>
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" type="submit"><img src="image/send.png" alt="send" width="16px"></button>
+                        <button class="btn btn-primary js-form-submit" type="submit"><img src="image/send.png" alt="send" width="16px"></button>
                     </span>
                 </div>
             </form>
@@ -343,7 +344,6 @@
     <script src="vendors/fullPage.js/jquery.fullPage.min.js"></script>
     <script src="vendors/PhotoSwipe/photoswipe.min.js"></script>
     <script src="vendors/PhotoSwipe/photoswipe-ui-default.min.js"></script>
-    <script src="vendors/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script src="js/main.js"></script>
 </body>

@@ -2,6 +2,14 @@
 body {
     font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.page-header {
+    margin-bottom: 0;
+}
+.page-header h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 
 /* fullpage.js override */
 #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
@@ -52,10 +60,12 @@ html, body {
 
 /* section main */
 .section-main {
-    background: -ms-linear-gradient(#a1e5e5, #1987aa);
+/*    background: -ms-linear-gradient(#a1e5e5, #1987aa);
     background: -moz-linear-gradient(#a1e5e5, #1987aa);
     background: -webkit-linear-gradient(#a1e5e5, #1987aa);
-    background: linear-gradient(#a1e5e5, #1987aa);
+    background: linear-gradient(#a1e5e5, #1987aa);*/
+    background: url(../photo/cover.jpg) top center;
+    background-size: cover;
     color: #333;
 
 }
@@ -71,15 +81,9 @@ html, body {
 
 }
     .photo-box {
-        position: absolute;
-        top: 90px;
-        bottom: 60px;
-        right: 20px;
-        left: 20px;
         max-width: 960px;
-        margin: auto;
-        overflow: auto;
-        text-align: left;
+        padding: 10px;
+        margin: 0 auto 30px auto;
         opacity: 0;
         -webkit-transition: opacity 1s ease 1.2s;
         transition: opacity 1s ease 1.2s;
@@ -116,12 +120,43 @@ html, body {
 }
     .comment-list {
         position: absolute;
-        top: 80px;
+        top: 50px;
         right: 0;
         bottom: 40px;
         left: 0;
+        padding: 10px;
         background: rgb(250, 253, 196);
     }
+        .comment {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .comment:before {
+            position: absolute;
+            top: 10px;
+            left: 32px;
+            display: block;
+            content: " ";
+            border: 8px solid transparent;
+            border-right: 8px solid lightgreen;
+
+        }
+            .comment .profile {
+                display: inline-block;
+                width: 36px;
+                height: 36px;
+                float: left;
+                background-position: center center;
+                background-size: cover;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .comment .message {
+                text-align: left;
+                overflow: hidden;
+                background: lightgreen;
+                padding: 8px;
+            }
     .comment-input-box {
         position: absolute;
         right: 0;
@@ -147,3 +182,5 @@ html, body {
     -webkit-transition: bottom .5s ease 1s;
     transition: bottom .5s ease 1s;
 }
+
+

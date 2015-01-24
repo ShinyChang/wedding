@@ -1,3 +1,5 @@
+"use strict";
+
 // for mobile
 (function(){
     var lockOrientation = screen.mslockOrientation
@@ -27,6 +29,11 @@ window.checkFacebookLoginState = function() {
 window.onFacebookLoginStatusChange = function(response) {
     if (response.status === 'connected') {
         FB.api('/me', function(response) {
+            // fill form
+            $(".js-form")
+                .find(".js-form-id").val(response.id).end()
+                .find(".js-form-name").val(response.name);
+
             $(".js-fb-not-login").hide();
             $(".js-fb-logined")
                 .fadeIn()
@@ -51,13 +58,14 @@ ga('send', 'pageview');
         navigation: true,
         resize: false,
         verticalCentered:false,
-        normalScrollElements: ".pswp, .photo-box",
+        scrollOverflow: true,
+        normalScrollElements: ".pswp",
         navigationTooltips: ['首頁', '婚紗照', '留言板'],
         scrollingSpeed: 700,
         afterLoad: function(anchorLink, index) {
-            if (anchorLink === 'comment') {
-                $("input:text:visible").focus();
-            }
+            // if (anchorLink === 'comment') {
+            //     $("input:text:visible").focus();
+            // }
         }
     });
 })();
@@ -211,7 +219,7 @@ ga('send', 'pageview');
                 index: index,
 
                 // define gallery index (for URL)
-                galleryUID: galleryElement.getAttribute('data-pswp-uid') || 1, // compatibility with mCustomScrollbar
+                galleryUID: galleryElement.getAttribute('data-pswp-uid'),
 
 
                 shareButtons: [
@@ -256,3 +264,53 @@ ga('send', 'pageview');
     // execute above function
     initPhotoSwipeFromDOM('.photo-box');
 })();
+
+
+
+
+// comment
+(function(){
+    var _timer = null,
+        _comments = [],
+        $commentList = $(".js-comment-list");
+
+    $(".js-form").submit(function(){
+        var $form = $(this),
+            data = $form.serialize();
+        $(".js-form-submit").prop('disabled', true);
+        $.post("http://wedding.shinychang.net/comments.json", data, function(){
+            $(".js-form-message").val("");
+            $(".js-form-submit").prop('disabled', false);
+            refrashCommenet();
+        }, 'json')
+        return false;
+    });
+
+
+    function refrashCommenet() {
+        clearTimeout(_timer);
+        $.get("http://wedding.shinychang.net/comments.json", function (comments) {
+
+            // no change
+            if (comments.length === _comments.length) {
+                return;
+            }
+            var newComments = $(comments).slice(_comments.length);
+
+            $.each(newComments, function(idx, item) { // {id, name, message, timestamp}
+
+                _comments.push(item);
+                $commentList.append("<div class='comment clearfix'>"
+                                        + "<div class='profile' title='" + item.name + "' style='background-image: url(https://graph.facebook.com/" + item.id + "/picture?type=large)'></div>"
+                                        + "<div class='message'>" + item.message + "</div>"
+                                    + "</div>");
+            });
+        }, 'json');
+        _timer = setTimeout(refrashCommenet, 3000);
+    }
+
+    refrashCommenet();
+})();
+
+
+
