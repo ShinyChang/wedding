@@ -1,0 +1,100 @@
+/* bootstrap override */
+body {
+    font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+.topic {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    font-size: 4em;
+}
+.topic .date {
+    font-size: 1.1em
+}
+.topic .title {
+    font-size: .8em
+}
+.topic .bar {
+    margin: 30px 15px 0 15px;
+    border-top: 5px solid #fff;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 360px;
+    height: 100%;
+    background: rgba(232, 169, 150, 0.95);
+}
+.menu-list {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    padding: 0 25px;
+    margin: 0;
+    list-style: none;
+    color:#fff;
+}
+.menu-list-item {
+    position: relative;
+    padding: 5px 5px 5px 80px;
+    line-height: 2.5;
+    font-size: 2em;
+    transition: background-color 0.25s ease;
+    will-change: background-color;
+}
+.menu-list-item a {
+    display: block;
+    box-sizing: border-box;
+    color: #fff;
+    transition: color 0.25s ease;
+    will-change: color;
+}
+
+.menu-list-item:hover {
+    background-color: rgba(244, 191, 175, 0.80);
+    transition: background-color 0.25s ease;
+}
+.menu-list-item .icon {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.icon {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition:background-image 0.25s ease;
+    will-change: background-image;
+}
+.icon-story    {background-image: url(../image/story.png);}
+.icon-board    {background-image: url(../image/board.png);}
+.icon-photo    {background-image: url(../image/photo.png);}
+.icon-location {background-image: url(../image/location.png);}
+.icon-share    {background-image: url(../image/share.png);}
+
+
+.menu-list-item:hover a {color:#c67f60; text-decoration: none; transition: color 0.25s ease;}
+.menu-list-item:hover .icon-story    {background-image: url(../image/story_hover.png);}
+.menu-list-item:hover .icon-board    {background-image: url(../image/board_hover.png);}
+.menu-list-item:hover .icon-photo    {background-image: url(../image/photo_hover.png);}
+.menu-list-item:hover .icon-location {background-image: url(../image/location_hover.png);}
+.menu-list-item:hover .icon-share    {background-image: url(../image/share_hover.png);}
+
+.main {
+    background: url(../photo/cover.jpg) top center;
+    background-size: cover;
+    height: 100%;
+}
