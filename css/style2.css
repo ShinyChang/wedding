@@ -10,7 +10,8 @@ html, body {
     text-align: center;
     padding: 20px;
     color: #fff;
-    font-size: 4em;
+    font-size: 2em;
+    max-width: 320px;
 }
 .topic .date {
     font-size: 1.1em
@@ -19,8 +20,8 @@ html, body {
     font-size: .8em
 }
 .topic .bar {
-    margin: 30px 15px 0 15px;
-    border-top: 5px solid #fff;
+    margin: 10px 30px 0 30px;
+    border-top: 2px solid #fff;
 }
 
 .menu {
@@ -28,23 +29,25 @@ html, body {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 360px;
+    width: 100%;
     height: 100%;
-    background: rgba(232, 169, 150, 0.95);
+    background: rgba(232, 169, 150, 0.65);
 }
 .menu-list {
     position: absolute;
+    text-align: center;
     bottom: 20px;
     left: 0;
     right: 0;
-    padding: 0 25px;
-    margin: 0;
+    padding: 0;
+    margin: auto;
     list-style: none;
     color:#fff;
 }
 .menu-list-item {
+    display: inline-block;
     position: relative;
-    padding: 5px 5px 5px 80px;
+    padding: 5px 5px 5px 40px;
     line-height: 2.5;
     font-size: 2em;
     transition: background-color 0.25s ease;
@@ -72,8 +75,8 @@ html, body {
 
 .icon {
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     background-size: cover;
     background-repeat: no-repeat;
     transition:background-image 0.25s ease;
@@ -92,7 +95,7 @@ html, body {
 .menu-list-item:hover .icon-photo    {background-image: url(../image/photo_hover.png);}
 .menu-list-item:hover .icon-location {background-image: url(../image/location_hover.png);}
 .menu-list-item:hover .icon-share    {background-image: url(../image/share_hover.png);}
-
+.menu-list-item .text {display: none}
 .main {
     background: url(../photo/cover.jpg) top center;
     background-size: cover;
