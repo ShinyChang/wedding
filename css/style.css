@@ -60,11 +60,7 @@ html, body {
 
 /* section main */
 .section-main {
-/*    background: -ms-linear-gradient(#a1e5e5, #1987aa);
-    background: -moz-linear-gradient(#a1e5e5, #1987aa);
-    background: -webkit-linear-gradient(#a1e5e5, #1987aa);
-    background: linear-gradient(#a1e5e5, #1987aa);*/
-    background: url(../photo/cover.jpg) top center;
+    background: url(../photo/049.jpg) center center;
     background-size: cover;
     color: #333;
 
