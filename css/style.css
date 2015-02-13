@@ -182,7 +182,7 @@ html, body {
 }
 .sysbar.btn-group>.btn:last-child:not(:last-child):not(.dropdown-toggle),
 .sysbar.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
-    border: 0;
+    border-radius: 0;
 }
 .fp-viewing-slideshow .sysbar,
 .fp-viewing-comment .sysbar {
