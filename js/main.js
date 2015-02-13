@@ -18,6 +18,9 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
         onFacebookLoginStatusChange(response);
     });
+
+    // checkFacebookLoginState not always correct
+    // should listen auth.statusChange get correct status
     FB.Event.subscribe('auth.statusChange', onFacebookLoginStatusChange);
 };
 
@@ -29,7 +32,6 @@ window.checkFacebookLoginState = function() {
 
 
 window.onFacebookLoginStatusChange = function(response) {
-    alert(response.status);
     if (response.status === 'connected') {
         FB.api('/me', function(response) {
             // fill form
