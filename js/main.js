@@ -27,6 +27,7 @@ window.checkFacebookLoginState = function() {
 };
 
 window.onFacebookLoginStatusChange = function(response) {
+    alert(response.status);
     if (response.status === 'connected') {
         FB.api('/me', function(response) {
             // fill form
