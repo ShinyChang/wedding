@@ -65,12 +65,16 @@ ga('send', 'pageview');
         normalScrollElements: ".pswp",
         navigationTooltips: ['首頁', '婚紗照', '留言板'],
         scrollingSpeed: 700,
+        paddingTop: '35px',
         afterLoad: function(anchorLink, index) {
             if (anchorLink === 'main') {
                 $(".js-menu").hide();
             } else {
                 $(".js-menu").show();
             }
+        },
+        afterResize: function(){
+            $.fn.fullpage.reBuild();
         }
     });
 })();

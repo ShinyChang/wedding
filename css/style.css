@@ -38,7 +38,6 @@ html, body {
 .section {
     position:relative;
     height: 100%;
-    padding-top: 30px;
     overflow: hidden;
     text-align: center;
     -ms-user-select: none;
@@ -116,13 +115,8 @@ html, body {
 
 }
     .comment-list {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 35px;
-        left: 0;
-        padding: 10px;
         background: rgb(250, 253, 196);
+        padding-bottom: 35px;
     }
         .comment {
             position: relative;
@@ -179,7 +173,7 @@ html, body {
 }
 
 
-.js-menu {
+.sysbar {
     position: fixed;
     top: 0;
     z-index: 5;
@@ -187,12 +181,12 @@ html, body {
     transition: opacity 0.5s ease;
     border-radius: 0;
 }
-.js-menu.btn-group>.btn:last-child:not(:last-child):not(.dropdown-toggle),
-.js-menu.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+.sysbar.btn-group>.btn:last-child:not(:last-child):not(.dropdown-toggle),
+.sysbar.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border: 0;
 }
-.fp-viewing-slideshow .js-menu,
-.fp-viewing-comment .js-menu {
+.fp-viewing-slideshow .sysbar,
+.fp-viewing-comment .sysbar {
     opacity: 1;
     transition: opacity 0.5s ease;
 }
