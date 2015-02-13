@@ -22,16 +22,16 @@
 </head>
 
 <body>
+    <div class="btn-group btn-group-justified js-menu" role="group" aria-label="...">
+        <a class="btn btn-default" href="#main" data-menuanchor="main"><i class="glyphicon glyphicon-home"></i></a>
+        <a class="btn btn-default" href="#slideshow" data-menuanchor="slideshow"><i class="glyphicon glyphicon-picture"></i></a>
+        <a class="btn btn-default" href="#comment" data-menuanchor="comment"><i class="glyphicon glyphicon-comment"></i></a>
+    </div>
     <div class="js-fullpage">
         <div class="section section-main">
 
         </div>
         <div class="section section-slideshow">
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                <a class="btn btn-default" href="#main"><i class="glyphicon glyphicon-home"></i></a>
-                <a class="btn btn-default active" href="#slideshow"><i class="glyphicon glyphicon-picture"></i></a>
-                <a class="btn btn-default" href="#comment"><i class="glyphicon glyphicon-comment"></i></a>
-            </div>
             <div class="photo-box" data-mcs-theme="minimal-dark">
                 <figure><a href="photo/ps/001.jpg" data-size="1620x1080"><img src="photo/ps/001s.jpg" alt="001"/></a>
                 </figure><figure><a href="photo/ps/002.jpg" data-size="720x1080"><img src="photo/ps/002s.jpg" alt="002"/></a>
@@ -88,9 +88,6 @@
             </div>
         </div>
         <div class="section section-discuss">
-            <div class="page-header">
-                <h1><small>留下您對新人的祝福</small></h1>
-            </div>
             <div class="comment-list js-comment-list">
             </div>
             <form class='comment-input-box js-form' action="http://wedding.shinychang.net/comments.json" method="post">

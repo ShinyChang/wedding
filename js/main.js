@@ -55,17 +55,20 @@ ga('send', 'pageview');
 (function(){
     $('.js-fullpage').fullpage({
         anchors: ['main', 'slideshow', 'comment'],
+        menu: '.js-menu',
         navigation: true,
-        resize: false,
+        resize: true,
         verticalCentered:false,
         scrollOverflow: true,
         normalScrollElements: ".pswp",
         navigationTooltips: ['首頁', '婚紗照', '留言板'],
         scrollingSpeed: 700,
         afterLoad: function(anchorLink, index) {
-            // if (anchorLink === 'comment') {
-            //     $("input:text:visible").focus();
-            // }
+            if (anchorLink === 'main') {
+                $(".js-menu").hide();
+            } else {
+                $(".js-menu").show();
+            }
         }
     });
 })();
