@@ -18,6 +18,7 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
         onFacebookLoginStatusChange(response);
     });
+    FB.Event.subscribe('auth.statusChange', onFacebookLoginStatusChange);
 };
 
 window.checkFacebookLoginState = function() {
@@ -25,6 +26,7 @@ window.checkFacebookLoginState = function() {
         onFacebookLoginStatusChange(response);
     });
 };
+
 
 window.onFacebookLoginStatusChange = function(response) {
     alert(response.status);
