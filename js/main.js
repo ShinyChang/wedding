@@ -40,6 +40,8 @@ window.onFacebookLoginStatusChange = function(response) {
                 .find(".user-photo")
                 .css("background-image", "url(https://graph.facebook.com/" + response.id + "/picture?type=large)");
         });
+    } else if (response.status !== 'unknown' && response.status === 'not_authorized') {
+        checkFacebookLoginState();
     }
 };
 
@@ -57,7 +59,7 @@ ga('send', 'pageview');
         anchors: ['main', 'slideshow', 'comment'],
         menu: '.js-menu',
         navigation: true,
-        resize: true,
+        // resize: false,
         verticalCentered:false,
         scrollOverflow: true,
         normalScrollElements: ".pswp",

@@ -157,11 +157,9 @@ html, body {
     .comment-input-box {
         position: absolute;
         right: 0;
-        bottom: -40px;
+        bottom: 0px;
         left: 0;
-        height: 40px;
-        padding-top: 5px;
-        border-top: 1px solid #eee;
+        height: 34px;
     }
         .comment-input-box .user-photo {
             display: inline-block;
@@ -187,6 +185,11 @@ html, body {
     z-index: 5;
     opacity: 0;
     transition: opacity 0.5s ease;
+    border-radius: 0;
+}
+.js-menu.btn-group>.btn:last-child:not(:last-child):not(.dropdown-toggle),
+.js-menu.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border: 0;
 }
 .fp-viewing-slideshow .js-menu,
 .fp-viewing-comment .js-menu {
