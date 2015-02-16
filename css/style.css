@@ -115,6 +115,7 @@ html, body {
 
 }
     .comment-list {
+        padding-bottom: 35px;
         background: rgb(250, 253, 196);
     }
         .comment {
@@ -163,6 +164,10 @@ html, body {
         }
         .comment-input-box .input-group * {
             border-radius: 0;
+            z-index: 100;
+        }
+        .comment-input-box .help-block {
+            background: #fff;
         }
 
 .section-discuss.active .comment-input-box {

@@ -1,11 +1,8 @@
 "use strict";
 
 // for mobile
-(function(){
-    var lockOrientation = screen.mslockOrientation
-                        || screen.mozlockOrientation
-                        || screen.webkitlockOrientation
-                        || screen.lockOrientation;
+(function() {
+    var lockOrientation = screen.mslockOrientation || screen.mozlockOrientation || screen.webkitlockOrientation || screen.lockOrientation;
 
     if (lockOrientation) {
         lockOrientation('portrait');
@@ -22,6 +19,7 @@ window.fbAsyncInit = function() {
     // checkFacebookLoginState not always correct
     // should listen auth.statusChange get correct status
     FB.Event.subscribe('auth.statusChange', onFacebookLoginStatusChange);
+
 };
 
 window.checkFacebookLoginState = function() {
@@ -46,7 +44,7 @@ window.onFacebookLoginStatusChange = function(response) {
                 .css("background-image", "url(https://graph.facebook.com/" + response.id + "/picture?type=large)");
         });
     } else if (response.status !== 'unknown' && response.status === 'not_authorized') {
-        checkFacebookLoginState();
+
     }
 };
 
@@ -59,13 +57,13 @@ ga('create', 'UA-27224084-4', 'auto');
 ga('send', 'pageview');
 
 // fullpage.js
-(function(){
+(function() {
     $('.js-fullpage').fullpage({
         anchors: ['main', 'slideshow', 'comment'],
         menu: '.js-menu',
         navigation: true,
         // resize: false,
-        verticalCentered:false,
+        verticalCentered: false,
         scrollOverflow: true,
         normalScrollElements: ".pswp",
         navigationTooltips: ['首頁', '婚紗照', '留言板'],
@@ -77,16 +75,38 @@ ga('send', 'pageview');
             } else {
                 $(".js-menu").show();
             }
+            if (anchorLink === 'comment') {
+                FB.getLoginStatus(function(response) {
+                    if (response.status !== 'connected') {
+                        swal({
+                            title: "",
+                            text: "♥登入留言者，宴客時可參加抽獎♥",
+                            showCancelButton: true,
+                            confirmButtonText: "登入 Facebook 並留言",
+                            cancelButtonText: "我知道了",
+                        }, function(isConfirm) {
+                            if (isConfirm) {
+                                FB.login();
+                            }
+                        });
+                    }
+                });
+            }
+
+            $(".section-discuss .fp-scrollable").slimScroll({
+                scrollTo: $(".section-discuss .fp-scrollable").prop('scrollHeight') + "px"
+            });
         },
-        afterResize: function(){
+        afterResize: function() {
             $.fn.fullpage.reBuild();
         }
     });
+
 })();
 
 // photoSwipe
-(function(){
-        var initPhotoSwipeFromDOM = function(gallerySelector) {
+(function() {
+    var initPhotoSwipeFromDOM = function(gallerySelector) {
 
         // parse slide data (url, title, size ...) from DOM elements
         // (children of gallerySelector)
@@ -99,12 +119,12 @@ ga('send', 'pageview');
                 size,
                 item;
 
-            for(var i = 0; i < numNodes; i++) {
+            for (var i = 0; i < numNodes; i++) {
 
                 figureEl = thumbElements[i]; // <figure> element
 
                 // include only element nodes
-                if(figureEl.nodeType !== 1) {
+                if (figureEl.nodeType !== 1) {
                     continue;
                 }
 
@@ -121,12 +141,12 @@ ga('send', 'pageview');
 
 
 
-                if(figureEl.children.length > 1) {
+                if (figureEl.children.length > 1) {
                     // <figcaption> content
                     item.title = figureEl.children[1].innerHTML;
                 }
 
-                if(linkEl.children.length > 0) {
+                if (linkEl.children.length > 0) {
                     // <img> thumbnail element, retrieving thumbnail url
                     item.msrc = linkEl.children[0].getAttribute('src');
                 }
@@ -140,7 +160,7 @@ ga('send', 'pageview');
 
         // find nearest parent element
         var closest = function closest(el, fn) {
-            return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+            return el && (fn(el) ? el : closest(el.parentNode, fn));
         };
 
         // triggers when user clicks on thumbnail
@@ -155,7 +175,7 @@ ga('send', 'pageview');
                 return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
             });
 
-            if(!clickedListItem) {
+            if (!clickedListItem) {
                 return;
             }
 
@@ -168,11 +188,11 @@ ga('send', 'pageview');
                 index;
 
             for (var i = 0; i < numChildNodes; i++) {
-                if(childNodes[i].nodeType !== 1) {
+                if (childNodes[i].nodeType !== 1) {
                     continue;
                 }
 
-                if(childNodes[i] === clickedListItem) {
+                if (childNodes[i] === clickedListItem) {
                     index = nodeIndex;
                     break;
                 }
@@ -181,9 +201,9 @@ ga('send', 'pageview');
 
 
 
-            if(index >= 0) {
+            if (index >= 0) {
                 // open PhotoSwipe if valid index found
-                openPhotoSwipe( index, clickedGallery );
+                openPhotoSwipe(index, clickedGallery);
             }
             return false;
         };
@@ -191,7 +211,7 @@ ga('send', 'pageview');
         // parse picture index and gallery index from URL (#&pid=1&gid=2)
         var photoswipeParseHash = function() {
             var hash = window.location.hash.substring(1),
-            params = {};
+                params = {};
 
             if (hash.length < 5) {
                 return params;
@@ -199,21 +219,21 @@ ga('send', 'pageview');
 
             var vars = hash.split('&');
             for (var i = 0; i < vars.length; i++) {
-                if(!vars[i]) {
+                if (!vars[i]) {
                     continue;
                 }
                 var pair = vars[i].split('=');
-                if(pair.length < 2) {
+                if (pair.length < 2) {
                     continue;
                 }
                 params[pair[0]] = pair[1];
             }
 
-            if(params.gid) {
+            if (params.gid) {
                 params.gid = parseInt(params.gid, 10);
             }
 
-            if(!params.hasOwnProperty('pid')) {
+            if (!params.hasOwnProperty('pid')) {
                 return params;
             }
             params.pid = parseInt(params.pid, 10);
@@ -236,42 +256,52 @@ ga('send', 'pageview');
                 galleryUID: galleryElement.getAttribute('data-pswp-uid'),
 
 
-                shareButtons: [
-                    {id:'facebook', label:'分享到 Facebook', url:'https://www.facebook.com/sharer/sharer.php?u='},
-                    {id:'download', label:'下載原始圖片', url:'', download:true}
-                ],
+                shareButtons: [{
+                    id: 'facebook',
+                    label: '分享到 Facebook',
+                    url: 'https://www.facebook.com/sharer/sharer.php?u='
+                }, {
+                    id: 'download',
+                    label: '下載原始圖片',
+                    url: '',
+                    download: true
+                }],
                 getThumbBoundsFn: function(index) {
                     // See Options -> getThumbBoundsFn section of documentation for more info
                     var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
                         pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
                         rect = thumbnail.getBoundingClientRect();
 
-                    return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+                    return {
+                        x: rect.left,
+                        y: rect.top + pageYScroll,
+                        w: rect.width
+                    };
                 }
 
             };
 
-            if(disableAnimation) {
+            if (disableAnimation) {
                 options.showAnimationDuration = 0;
             }
 
             // Pass data to PhotoSwipe and initialize it
-            gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+            gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
             gallery.init();
         };
 
         // loop through all gallery elements and bind events
-        var galleryElements = document.querySelectorAll( gallerySelector );
+        var galleryElements = document.querySelectorAll(gallerySelector);
 
-        for(var i = 0, l = galleryElements.length; i < l; i++) {
-            galleryElements[i].setAttribute('data-pswp-uid', i+1);
+        for (var i = 0, l = galleryElements.length; i < l; i++) {
+            galleryElements[i].setAttribute('data-pswp-uid', i + 1);
             galleryElements[i].onclick = onThumbnailsClick;
         }
 
         // Parse URL and open gallery if it contains #&pid=3&gid=1
         var hashData = photoswipeParseHash();
-        if(hashData.pid > 0 && hashData.gid > 0) {
-            openPhotoSwipe( hashData.pid - 1 ,  galleryElements[ hashData.gid - 1 ], true );
+        if (hashData.pid > 0 && hashData.gid > 0) {
+            openPhotoSwipe(hashData.pid - 1, galleryElements[hashData.gid - 1], true);
         }
     };
 
@@ -283,16 +313,16 @@ ga('send', 'pageview');
 
 
 // comment
-(function(){
+(function() {
     var _timer = null,
         _comments = [],
         $commentList = $(".js-comment-list");
 
-    $(".js-form").submit(function(){
+    $(".js-form").submit(function() {
         var $form = $(this),
             data = $form.serialize();
         $(".js-form-submit").prop('disabled', true);
-        $.post("http://wedding.shinychang.net/comments.json", data, function(){
+        $.post("http://wedding.shinychang.net/comments.json", data, function() {
             $(".js-form-message").val("");
             $(".js-form-submit").prop('disabled', false);
             refrashCommenet();
@@ -303,28 +333,36 @@ ga('send', 'pageview');
 
     function refrashCommenet() {
         clearTimeout(_timer);
-        $.get("http://wedding.shinychang.net/comments.json", function (comments) {
+        var $scrollEle = $(".section-discuss .fp-scrollable");
+        $.get("http://wedding.shinychang.net/comments.json", function(comments) {
 
             // no change
             if (comments.length === _comments.length) {
+                $scrollEle = null;
                 return;
             }
+
             var newComments = $(comments).slice(_comments.length);
+            var scrollTop = $scrollEle.prop('scrollHeight') - $scrollEle.outerHeight(true) - $scrollEle.prop('scrollTop');
 
             $.each(newComments, function(idx, item) { // {id, name, message, timestamp}
 
                 _comments.push(item);
-                $commentList.append("<div class='comment clearfix'>"
-                                        + "<div class='profile' title='" + item.name + "' style='background-image: url(https://graph.facebook.com/" + item.id + "/picture?type=large)'></div>"
-                                        + "<div class='message'>" + item.message + "</div>"
-                                    + "</div>");
+                $commentList.append("<div class='comment clearfix'>" + "<div class='profile' title='" + item.name + "' style='background-image: url(https://graph.facebook.com/" + item.id + "/picture?type=large)'></div>" + "<div class='message'>" + item.message + "</div>" + "</div>");
             });
+
+            // keep scroll to bottom
+            if (scrollTop === 0) {
+                $scrollEle.slimScroll({
+                    scrollTo: $scrollEle.prop('scrollHeight') + "px"
+                });
+            }
+
+
+            $scrollEle = null;
         }, 'json');
         _timer = setTimeout(refrashCommenet, 3000);
     }
 
     refrashCommenet();
 })();
-
-
-

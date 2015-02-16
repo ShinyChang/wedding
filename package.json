@@ -1,0 +1,9 @@
+{
+  "name": "wedding",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-livereload": "^3.7.0"
+  }
+}
