@@ -279,7 +279,7 @@ ga('send', 'pageview');
                 "data-id": idx
             }));
         });
-        $tbContainer.on('click', ".pswp__thumbnail--item", function(){
+        $tbContainer.on('click, touchstart', ".pswp__thumbnail--item", function(){
             gallery.goTo($(this).data('id'));
             return false;
         });
