@@ -64,10 +64,10 @@ ga('send', 'pageview');
         navigation: true,
         // resize: false,
         verticalCentered: false,
-        scrollOverflow: true,
-        normalScrollElements: ".pswp",
+        scrollOverflow: false,
+        normalScrollElements: ".pswp, .photo-box, .comment-list",
         navigationTooltips: ['首頁', '婚紗照', '留言板'],
-        scrollingSpeed: 700,
+        scrollingSpeed: 500,
         paddingTop: '35px',
         afterLoad: function(anchorLink, index) {
             if (anchorLink === 'main') {
@@ -92,10 +92,6 @@ ga('send', 'pageview');
                     }
                 });
             }
-
-            $(".section-discuss .fp-scrollable").slimScroll({
-                scrollTo: $(".section-discuss .fp-scrollable").prop('scrollHeight') + "px"
-            });
         },
         afterResize: function() {
             $.fn.fullpage.reBuild();
@@ -259,13 +255,15 @@ ga('send', 'pageview');
                 shareButtons: [{
                     id: 'facebook',
                     label: '分享到 Facebook',
-                    url: 'https://www.facebook.com/sharer/sharer.php?u='
+                    url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}'
                 }, {
                     id: 'download',
                     label: '下載原始圖片',
-                    url: '',
+                    url: '{{raw_image_url}}',
                     download: true
                 }],
+
+
                 getThumbBoundsFn: function(index) {
                     // See Options -> getThumbBoundsFn section of documentation for more info
                     var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
@@ -333,7 +331,7 @@ ga('send', 'pageview');
 
     function refrashCommenet() {
         clearTimeout(_timer);
-        var $scrollEle = $(".section-discuss .fp-scrollable");
+        var $scrollEle = $(".comment-list");
         $.get("http://wedding.shinychang.net/comments.json", function(comments) {
 
             // no change
@@ -353,9 +351,7 @@ ga('send', 'pageview');
 
             // keep scroll to bottom
             if (scrollTop === 0) {
-                $scrollEle.slimScroll({
-                    scrollTo: $scrollEle.prop('scrollHeight') + "px"
-                });
+                $scrollEle.prop('scrollTop', $scrollEle.prop('scrollHeight'));
             }
 
 
