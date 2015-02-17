@@ -222,6 +222,7 @@ ga('send', 'pageview');
         if (index >= 0) {
             // open PhotoSwipe if valid index found
             openPhotoSwipe(index, clickedGallery);
+            gallery.shout('beforeChange');
         }
         return false;
     };
@@ -259,7 +260,11 @@ ga('send', 'pageview');
                 label: '下載原始圖片',
                 url: '{{raw_image_url}}',
                 download: true
-            }]
+            }],
+            barsSize: {
+                top: 44,
+                bottom: 60
+            }
         };
 
         if (disableAnimation) {
@@ -279,21 +284,23 @@ ga('send', 'pageview');
                 "data-id": idx
             }));
         });
-        $tbContainer.on('click, touchstart', ".pswp__thumbnail--item", function(){
+        $tbContainer.on('click', ".pswp__thumbnail--item", function() {
             gallery.goTo($(this).data('id'));
             return false;
         });
+        $tbContainer.on('touchstart', ".pswp__thumbnail--item", function() {
+            gallery.goTo($(this).data('id'));
+            return false;
+        });
+
         gallery.listen('beforeChange', function() {
             var $tbTarget = $tbContainer.children().eq(gallery.getCurrentIndex()),
                 offset = 0;
-            $tbTarget.prevAll().each(function(idx, item){
+            $tbTarget.prevAll().each(function(idx, item) {
                 offset += $(item).outerWidth(true);
             });
-            $tbContainer.prop('scrollLeft', offset + $tbTarget.width() / 2 - $(window).width() / 2);
-        });
 
-        gallery.listen('parseVerticalMargin', function(item) {
-            item.vGap.bottom = 60;
+            $tbContainer.animate({'scrollLeft': offset + $tbTarget.width() / 2 - $(window).width() / 2});
         });
     };
 
