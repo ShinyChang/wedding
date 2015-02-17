@@ -56,7 +56,7 @@ window.ga = window.ga || function() {
 ga('create', 'UA-27224084-4', 'auto');
 ga('send', 'pageview');
 
-// fullpage.js
+// fullpage.js & photoswipe
 (function() {
     var gallery;
 
@@ -96,7 +96,6 @@ ga('send', 'pageview');
             }
         },
         afterResize: function() {
-            window.scrollTo(0, 1);
             $.fn.fullpage.reBuild();
         }
     });
