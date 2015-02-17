@@ -96,7 +96,7 @@ ga('send', 'pageview');
             }
         },
         afterResize: function() {
-            window.scrollTo(0,0);
+            window.scrollTo(0, 1);
             $.fn.fullpage.reBuild();
         }
     });
