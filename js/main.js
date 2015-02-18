@@ -264,7 +264,8 @@ ga('send', 'pageview');
             barsSize: {
                 top: 44,
                 bottom: 60
-            }
+            },
+            errorMsg: '<div class="pswp__error-msg"><a href="%url%" target="_blank">圖片</a> 無法載入，可能是網路發生問題了<br/><a href="javascript:window.location.reload();">重新整理</a> 或許可以解決此問題。</div>'
         };
 
         if (disableAnimation) {
