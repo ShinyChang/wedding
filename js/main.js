@@ -360,7 +360,15 @@ ga('send', 'pageview');
             $.each(newComments, function(idx, item) { // {id, name, message, timestamp}
 
                 _comments.push(item);
-                $commentList.append("<div class='comment clearfix'>" + "<div class='profile' title='" + item.name + "' style='background-image: url(https://graph.facebook.com/" + item.id + "/picture?type=large)'></div>" + "<div class='message'>" + item.message + "</div>" + "</div>");
+                var posttime = new Date(item.timestamp);
+                $commentList.append("<div class='comment clearfix'>"
+                                        + "<div class='profile' style='background-image: url(https://graph.facebook.com/" + item.id + "/picture?type=large)'></div>"
+                                        + "<div class='detail'>"
+                                            + "<div class='name'>" + item.name + "</div>"
+                                            + "<div class='message'>" + item.message + "</div>"
+                                            + "<div class='time'>" + posttime.toLocaleDateString() + " " + posttime.toLocaleTimeString() + "</div>"
+                                        + "</div>"
+                                    + "</div>");
             });
 
             // keep scroll to bottom

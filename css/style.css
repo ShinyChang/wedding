@@ -98,45 +98,46 @@ html, body {
 
 }
     .comment-list {
-        background: rgb(250, 253, 196);
+        background: rgba(250, 213, 201, 0.95);
         position: absolute;
         top: 34px;
         bottom: 34px;
         width: 100%;
-        padding-left: 10px;
-        padding-right: 10px;
         overflow: auto;
+        text-align: left;
     }
         .comment {
             position: relative;
-            margin-bottom: 25px;
-        }
-        .comment:before {
-            position: absolute;
-            top: 10px;
-            left: 32px;
-            display: block;
-            content: " ";
-            border: 8px solid transparent;
-            border-right: 8px solid lightgreen;
-
+            padding: 10px 20px;
+            border-bottom: 1px solid #e4b3b3;
         }
             .comment .profile {
                 display: inline-block;
-                width: 36px;
-                height: 36px;
+                width: 48px;
+                height: 48px;
                 float: left;
                 background-position: center center;
                 background-size: cover;
                 border-radius: 50%;
-                margin-right: 10px;
+                margin-right: 20px;
+                margin-top: 5px;
             }
-            .comment .message {
-                text-align: left;
+            .comment .detail {
                 overflow: hidden;
-                background: lightgreen;
-                padding: 8px;
             }
+                .comment .name {
+                    font-weight: bold;
+                    color: #666;
+                }
+                .comment .message {
+                    text-align: left;
+                    overflow: hidden;
+                    color: #731a1a;
+                }
+                .comment .time {
+                    font-size: 12px;
+                    color: #aaa;
+                }
     .comment-input-box {
         position: absolute;
         right: 0;
@@ -154,6 +155,9 @@ html, body {
         .comment-input-box .input-group * {
             border-radius: 0;
             z-index: 100;
+        }
+        .comment-input-box .input-group input {
+            background: rgba(250, 213, 201, 0.95);
         }
         .comment-input-box .help-block {
             background: #fff;
