@@ -1,41 +1,100 @@
 /* bootstrap override */
 body {
     font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: url(../photo/070.jpg) center center no-repeat;
+    background: #0d262e;
+}
+
+/* sweetalert override */
+.sweet-alert .sa-icon.sa-custom {
+    border-radius: 50%;
     background-size: cover;
-    background-position: fixed;
 }
-.navbar {
-    margin-bottom: 0;
-}
-.navbar-default {
-    background: transparent;
-}
-html, body {
+
+.spinBox {
+    width: 480px;
+    height: 800px;
+    margin: 0 auto;
     position: relative;
-    height: 100%;
+    background: url(../image/spin.png) center center no-repeat;
+    background-size: cover;
 }
-body:before {
+
+.spinBox .spin {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: 570px;
     left: 0;
-    background: rgba(255,255,255,0.6);
-    content: " ";
-    z-index: -1;
+    right: 0;
+    width: 235px;
+    height: 70px;
+    margin: auto;
+    border-radius: 40px;
 
+    line-height: 70px;
+    font-size: 36px;
+    text-align: center;
+    cursor: pointer;
 }
-.navbar-brand .brand-icon {
-    width: 16px;
-    display: inline-block;
+.spinBox .list {
+    position: absolute;
+    top: 358px;
+    left: 5px;
+    right: 0;
+    width: 325px;
+    height: 180px;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+
+    line-height: 45px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
 }
 
+.spinBox .result {
+    position: absolute;
+    top: 680px;
+    left: 0;
+    right: 0;
+    width: 230px;
+    height: 45px;
+    margin: auto;
+    border-radius: 25px;
+
+    line-height: 45px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+.user {
+    color: #333;
+    text-align: left;
+    border-bottom: 2px solid #aaa;
+    margin: 0 10px;
+}
 .profile {
     display: inline-block;
-    width: 48px;
-    height: 48px;
+    width: 120px;
+    height: 120px;
+    margin: 30px 15px;
     background-position: center center;
     background-size: cover;
     border-radius: 50%;
+    float: left;
+}
+.name {
+    display: inline-block;
+    width: 155px;
+    height: 180px;
+    line-height: 180px;
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.message {
+    width: 100%;
+    text-align: center;
 }
