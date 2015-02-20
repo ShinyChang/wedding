@@ -20,8 +20,27 @@
     <div class="spinBox">
         <div class="spin">抽獎</div>
         <div class="list"></div>
-        <div class="result">得獎名單</div>
+        <div class="result" data-toggle="modal" data-target="#myModal">得獎名單<spna class='cnt'></spna></div>
     </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">得獎名單</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
     <script src="http://www.google-analytics.com/analytics.js" async></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.min.js"></script>

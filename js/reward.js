@@ -37,7 +37,7 @@
             } else {
                 var index = Math.floor(Math.random() * $list.children().length);
                 var $target = $list.children().eq(index);
-                var position = $target.position().top * -1;
+                var position = $list.prop('scrollHeight') - $target.position().top * -1 - $target.outerHeight(true);
 
                 // callback hell, (LOL)
                 $list.finish().animate({
@@ -47,15 +47,15 @@
                         scrollTop: position - 25
                     }, 1000, function() {
                         $list.animate({
-                            scrollTop: position - 15
+                            scrollTop: position + 15
                         }, function() {
                             swal({
                                 title: $target.find(".name").text(),
                                 text: "恭喜中獎，請上台領獎",
                                 imageUrl: $target.find(".profile").css('background-image').substring(4, $target.find(".profile").css('background-image').length - 1),
                             }, function() {
-                                rewardList.push($target);
-                                $target.remove();
+                                $(".modal-body").append($target);
+                                $(".cnt").text(~~$(".cnt").text() + 1);
                                 if (!$list.children().length) {
                                     var template = "<div class='user'><div class='name message'>大家都中獎了 :)</div></div>";
                                     $list.append(template);
@@ -71,8 +71,4 @@
     }
 
     $(".spin").bind('click', spin);
-    $(".result").bind('click', function(){
-        swal("", "還沒做好，敬請期待！", "warning");
-    });
-
 })();
