@@ -51,7 +51,7 @@
                         }, function() {
                             swal({
                                 title: $target.find(".name").text(),
-                                text: "恭喜中獎，請上台領獎",
+                                text: "恭喜這位幸運兒，請上台領獎",
                                 imageUrl: $target.find(".profile").css('background-image').substring(4, $target.find(".profile").css('background-image').length - 1),
                             }, function() {
                                 $(".modal-body").append($target);

@@ -82,7 +82,7 @@ ga('send', 'pageview');
                     if (response.status !== 'connected') {
                         swal({
                             title: "",
-                            text: "♥登入留言者，宴客時可參加抽獎♥",
+                            text: "♥快登入留下祝福的話語，\n可於宴客時參加抽抽樂喔♥",
                             showCancelButton: true,
                             confirmButtonText: "登入 Facebook 並留言",
                             cancelButtonText: "我知道了",
